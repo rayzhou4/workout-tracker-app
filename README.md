@@ -23,7 +23,7 @@ beginners (or even people that want to start working out) to get into the habit 
 what I have experienced.
 
 ## User Stories
-- As a user, I want to be able to record my workout session to the application
+- As a user, I want to be able to add my workout session to the application's record
 - As a user, I want to be able to view the recorded workouts to track progress 
 - As a user, I want to be able to mark how I felt after each workout session (out of a score of 5, with 1 being the lowest)
 - As a user, I want to be able to view my PRs (personal records) for certain workouts (like the bench and squat)
