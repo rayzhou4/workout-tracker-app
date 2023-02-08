@@ -1,14 +1,16 @@
 package ui;
 
+import model.Exercise;
 import model.WorkoutHistory;
+import model.WorkoutSession;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
+    WorkoutHistory workoutHistory = new WorkoutHistory(); // the workout history that stores everything
     public static void main(String[] args) {
         // initializing main variables
-        WorkoutHistory workoutHistory = new WorkoutHistory();
         int intUserInput;
         String stringUserInput;
         Scanner sc = new Scanner(System.in); // initializing scanner object
@@ -49,6 +51,52 @@ public class Main {
                     flag = true;
             }
         } while (flag);
+    }
+
+    // add a workout session
+    private static void addWorkoutSession() {
+        WorkoutSession workoutSession = null; // initialize the workout session
+        Scanner sc = new Scanner(System.in); // initializing scanner object
+
+        System.out.println("To add a workout session, we must first add exercises."
+                + "So please input your first exercise:");
+
+        int intUserInput = 1; // initialize user input (initialized to 1 to start loop for the first time)
+        while (true) {
+            System.out.print("Enter exercise name: ");
+            String exerciseName = sc.next();
+            System.out.print("Enter exercise's weight (if applicable): ");
+            double exerciseWeight = sc.nextDouble();
+            
+            workoutSession.addExercise(new Exercise(exerciseName, exerciseWeight));
+
+            System.out.println("(1) Add another exercise\n(2) Remove an exercise\n(3) Done");
+            intUserInput = sc.nextInt();
+            // WRONG STUFF RIGHT NOW!!!!
+            if (intUserInput == 3) {
+                break;
+            }
+
+            // prints workout session so far
+            System.out.println("Your Workout Session so far:");
+
+        }
+
+        System.out.println("You have successfully added a workout session!");
+    }
+
+    // view entire workout history
+    private static void viewWorkoutHistory() {
+
+    }
+
+    // view the statistics of the user's workout history
+    private static void viewStatistics() {
+
+    }
+
+    // view the help menu
+    private static void viewHelp() {
 
     }
 }
