@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// a class that tests the implementations of the exercise class
 class ExerciseTest {
     private Exercise testExercise1;
     private Exercise testExercise2;

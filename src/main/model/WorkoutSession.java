@@ -5,6 +5,7 @@ import java.util.Date;
 
 import static java.lang.Integer.parseInt;
 
+// a workout session class that includes a list of exercises with additional information relating to workout sessions
 public class WorkoutSession {
     private ArrayList<Exercise> exerciseList; // the list of exercises done during the workout session
     private int time;                         // how long the workout lasted (in minutes)

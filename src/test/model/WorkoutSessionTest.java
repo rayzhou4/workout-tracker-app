@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// a class that tests the implementations of the workout session class
 class WorkoutSessionTest {
     private WorkoutSession testWorkoutSession;
 

@@ -1,5 +1,6 @@
 package model;
 
+// an exercise class that contains information relating to an exercise
 public class Exercise {
     private String exercise;    // tracks the type of exercise
     private double weight;      // if applicable, the weight of how heavy the exercise was (ex. dumbbells) in lbs

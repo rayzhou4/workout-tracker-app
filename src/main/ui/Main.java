@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// main user interface class
 public class Main {
     static WorkoutHistory workoutHistory = new WorkoutHistory(); // the workout history that stores everything
 

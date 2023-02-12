@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// a class that tests the implementations of the workout history class
 class WorkoutHistoryTest {
     private WorkoutHistory testWorkoutHistory;
     private static final int CURRENT_YEAR = 2023;

@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+// a workout history class that contains information relating to the entire workout history of the user
 public class WorkoutHistory {
     private ArrayList<WorkoutSession> workoutSessionList;
 
