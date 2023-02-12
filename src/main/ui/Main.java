@@ -35,7 +35,7 @@ public class Main {
                     flag = true;
                     break;
                 case 2:
-                    viewWorkoutHistory(); // TODO
+                    viewWorkoutHistory();
                     flag = true;
                     break;
                 case 3:
@@ -192,7 +192,10 @@ public class Main {
 
     // view the statistics of the user's workout history
     private static void viewStatistics() {
-
+        System.out.println("Total Workouts: " + workoutHistory.getWorkoutHistory().size()
+                + "\nTotal Workouts this year: " + workoutHistory.getTotalYear()
+                + "\nTotal Workout this month: " + workoutHistory.getTotalMonth()
+                + "\nAverage Time per Workout: " + workoutHistory.getAverageTime() + " mins");
     }
 
     // view the help menu
