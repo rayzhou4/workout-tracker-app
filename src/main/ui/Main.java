@@ -159,7 +159,7 @@ public class Main {
 
         System.out.print("Rate how you felt after this workout session (1 being the worst, 5 being the best): ");
         int userScore = sc.nextInt();
-        while (userScore < 0 || userScore > 5) {
+        while (userScore < 1 || userScore > 5) {
             System.out.print("Please input an appropriate score: ");
             userScore = sc.nextInt();
         }
