@@ -12,10 +12,6 @@ public class Main {
     static WorkoutHistory workoutHistory = new WorkoutHistory(); // the workout history that stores everything
 
     public static void main(String[] args) {
-        mainMenu();
-    }
-
-    private static void mainMenu() {
         Scanner sc = new Scanner(System.in); // initializing scanner object
 
         boolean flag = true; // initialize a boolean to break out of do while loop
@@ -161,7 +157,7 @@ public class Main {
     private static int addScore() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Rate how you felt after this workout session (1 being the worst, 5 being the best: ");
+        System.out.print("Rate how you felt after this workout session (1 being the worst, 5 being the best): ");
         int userScore = sc.nextInt();
         while (userScore < 0 || userScore > 5) {
             System.out.print("Please input an appropriate score: ");

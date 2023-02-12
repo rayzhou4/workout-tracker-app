@@ -28,7 +28,7 @@ public class WorkoutHistory {
     // MODIFIES: this
     // EFFECTS: removes a workout session from the current list of workout sessions,
     // new list of workout sessions is returned
-    public ArrayList<WorkoutSession> removeWorkout(WorkoutSession workoutSession) {
+    public ArrayList<WorkoutSession> removeWorkoutSession(WorkoutSession workoutSession) {
         this.workoutSessionList.remove(workoutSession);
         return this.workoutSessionList;
     }
@@ -60,7 +60,8 @@ public class WorkoutHistory {
         return total;
     }
 
-    // EFFECTS:
+    // REQUIRES: there must be at least one workout session in the workoutSessionList
+    // EFFECTS: gets the average time
     public int getAverageTime() {
         int sum = 0;
         for (WorkoutSession workoutSession : this.workoutSessionList) {
