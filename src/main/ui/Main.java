@@ -16,38 +16,27 @@ public class Main {
     }
 
     private static void mainMenu() {
-        // initializing main variables
-        String stringUserInput;
         Scanner sc = new Scanner(System.in); // initializing scanner object
 
-        boolean flag; // initialize a boolean to break out of do while loop
-        do {
+        boolean flag = true; // initialize a boolean to break out of do while loop
+        while (flag) {
             // introducing application to user (the main menu)
             System.out.println("Main Menu:\n" + "(1) Add a workout session\n" + "(2) View your entire workout history\n"
                     + "(3) View your statistics\n" + "(4) Exit");
 
             int intUserInput = sc.nextInt();
-            switch (intUserInput) {
-                case 1:
-                    addWorkoutSession();
-                    flag = true;
-                    break;
-                case 2:
-                    viewWorkoutHistory();
-                    flag = true;
-                    break;
-                case 3:
-                    viewStatistics();
-                    flag = true;
-                    break;
-                case 4:
-                    flag = false;
-                    break;
-                default: // restarts the code block if user inputs a number not within the range
-                    System.out.println("Please input within the appropriate range!");
-                    flag = true;
+            if (intUserInput == 1) {
+                addWorkoutSession();
+            } else if (intUserInput == 2) {
+                viewWorkoutHistory();
+            } else if (intUserInput == 3) {
+                viewStatistics();
+            } else if (intUserInput == 4) {
+                flag = false;
+            } else {
+                System.out.println("Please input within the appropriate range!");
             }
-        } while (flag);
+        }
     }
 
     // general helper
@@ -70,16 +59,7 @@ public class Main {
     // add a workout session
     private static void addWorkoutSession() {
         Scanner sc = new Scanner(System.in); // initializing scanner object
-        // getting the length of time of the workout session
-        System.out.print("Time you exercised (in mins): ");
-        int time = sc.nextInt();
-        // getting the date of the workout session
-        String date = addDate();
-        while (date == null) {
-            System.out.println("Please input an appropriate date.");
-            date = addDate();
-        }
-        WorkoutSession workoutSession = new WorkoutSession(time, date); // initialize the workout session
+        WorkoutSession workoutSession = initializeWorkoutSession(); // initializing workout session object
 
         System.out.println("To add a workout session, first add exercises. So please input your first exercise.");
         workoutSession.addExercise(addAnExercise());
@@ -101,7 +81,27 @@ public class Main {
             System.out.print("Your workout session so far: ");
             printWorkoutSession(workoutSession);
         }
+        workoutSession.setHappinessScore(addScore());
         workoutHistory.addWorkoutSession(workoutSession);
+    }
+
+    // addWorkoutSession() help: initializes a workout session
+    private static WorkoutSession initializeWorkoutSession() {
+        Scanner sc = new Scanner(System.in); // initializing scanner object
+
+        // getting the length of time of the workout session
+        System.out.print("Time you exercised (in mins): ");
+        int time = sc.nextInt();
+
+        // getting the date of the workout session
+        String date = addDate();
+        while (date == null) {
+            System.out.println("Please input an appropriate date.");
+            date = addDate();
+        }
+
+        WorkoutSession workoutSession = new WorkoutSession(time, date, -1); // initialize workout session
+        return workoutSession;
     }
 
     // addWorkoutSession() helper: adds an exercise
@@ -141,7 +141,7 @@ public class Main {
     }
 
     // addWorkoutSession() helper: adds a date for the workout session
-    public static String addDate() {
+    private static String addDate() {
         Scanner sc = new Scanner(System.in); // initializing scanner object
 
         System.out.print("Date (yyyy-mm-dd): ");
@@ -157,7 +157,19 @@ public class Main {
         }
     }
 
+    // addWorkoutSession() helper: adds how the user felt after the workout
+    private static int addScore() {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.print("Rate how you felt after this workout session (1 being the worst, 5 being the best: ");
+        int userScore = sc.nextInt();
+        while (userScore < 0 || userScore > 5) {
+            System.out.print("Please input an appropriate score: ");
+            userScore = sc.nextInt();
+        }
+
+        return userScore;
+    }
 
     // view entire workout history
     private static void viewWorkoutHistory() {

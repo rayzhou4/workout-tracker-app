@@ -11,19 +11,20 @@ public class WorkoutSession {
     private int year;                         // when the workout took place (year)
     private int month;                        // when the workout took place (month)
     private int day;                          // when the workout took place (day)
+    private int happinessScore;               // happiness score after the workout session
 
-    /*
-     * REQUIRES: time > 0
-     * EFFECTS: this.exercises is set to an empty arraylist; this.time is set to time
-     *          this.year is set to the given year, this.month is set to the given month,
-     *          this.day is set to the given day
-     */
-    public WorkoutSession(int time, String date) {
+    // REQUIRES: time > 0
+    // EFFECTS: this.exercises is set to an empty arraylist; this.time is set to time
+    //          this.year is set to the given year, this.month is set to the given month,
+    //          this.day is set to the given day, this.happinessScore is set to the given
+    //          happinessScore
+    public WorkoutSession(int time, String date, int happinessScore) {
         this.exerciseList = new ArrayList<Exercise>();
         this.time = time;
         this.year = parseInt(date.split("-")[0]);
         this.month = parseInt(date.split("-")[1]);
         this.day = parseInt(date.split("-")[2]);
+        this.happinessScore = happinessScore;
     }
 
     /*
@@ -51,6 +52,10 @@ public class WorkoutSession {
         return this.day;
     }
 
+    public int getHappinessScore() {
+        return happinessScore;
+    }
+
     /*
      * MODIFIES: this
      * EFFECTS: adds an exercise to the current list of exercises,
@@ -69,5 +74,11 @@ public class WorkoutSession {
     public ArrayList<Exercise> removeExercise(Exercise exercise) {
         this.exerciseList.remove(exercise);
         return this.exerciseList;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: changes the happiness score for the workout session
+    public int setHappinessScore(int newScore) {
+        return this.happinessScore = newScore;
     }
 }
