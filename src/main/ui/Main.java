@@ -26,7 +26,7 @@ public class Main {
         do {
             // introducing application to user (the main menu)
             System.out.println("Main Menu:\n" + "(1) Add a workout session\n" + "(2) View your entire workout history\n"
-                    + "(3) View your statistics\n" + "(4) Help\n" + "(5) Exit");
+                    + "(3) View your statistics\n" + "(4) Exit");
 
             int intUserInput = sc.nextInt();
             switch (intUserInput) {
@@ -39,14 +39,10 @@ public class Main {
                     flag = true;
                     break;
                 case 3:
-                    viewStatistics(); // TODO
+                    viewStatistics();
                     flag = true;
                     break;
                 case 4:
-                    viewHelp(); // TODO
-                    flag = true;
-                    break;
-                case 5:
                     flag = false;
                     break;
                 default: // restarts the code block if user inputs a number not within the range
@@ -196,11 +192,6 @@ public class Main {
                 + "\nTotal Workouts this year: " + workoutHistory.getTotalYear()
                 + "\nTotal Workout this month: " + workoutHistory.getTotalMonth()
                 + "\nAverage Time per Workout: " + workoutHistory.getAverageTime() + " mins");
-    }
-
-    // view the help menu
-    private static void viewHelp() {
-
     }
 }
 
