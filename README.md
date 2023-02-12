@@ -24,10 +24,10 @@ what I have experienced.
 
 ## User Stories
 - As a user, I want to be able to add my workout session to the application's record
+- As a user, I want to add multiple exercises to one workout session
 - As a user, I want to be able to view the recorded workouts to track progress 
 - As a user, I want to be able to mark how I felt after each workout session (out of a score of 5, with 1 being the lowest)
 - As a user, I want to be able to view my PRs (personal records) for certain workouts (like the bench and squat)
-- As a user, I want to be able to see statistics on how frequently I am working out, how long are the sessions, etc.
 - As a user, I want to be able to see how my statistics match with the best of the best and regular everyday average people
 - As a user, I want to be suggested different exercises based on what I want to work on (e.g. cardio, certain muscle groups, etc.)
 - As a user, I want to be given tips on health by the application

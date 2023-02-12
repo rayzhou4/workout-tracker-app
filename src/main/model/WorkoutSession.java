@@ -13,22 +13,22 @@ public class WorkoutSession {
      * EFFECTS: this.exercises is set to an empty arraylist; this.time is set to time
      *          this.date is set to date
      */
-    public WorkoutSession(int time, Date date) {
+    public WorkoutSession(int time) {
         this.exerciseList = new ArrayList<Exercise>();
         this.time = time;
-        this.date = date;
     }
 
+    /*
+     * REQUIRES: exercises is not empty AND time > 0
+     * EFFECTS: this.exercises is set to an empty arraylist; this.time is set to time
+     *          this.date is set to date
+     */
     public ArrayList<Exercise> getExerciseList() {
         return this.exerciseList;
     }
 
     public int getTime() {
         return this.time;
-    }
-
-    public Date getDate() {
-        return this.date;
     }
 
     /*
