@@ -41,7 +41,7 @@ public class WorkoutApp {
         }
     }
 
-    // EFFECTS: prints workout session
+    // EFFECTS: prints a given workout session
     private void printWorkoutSession(WorkoutSession workoutSession) {
         ArrayList<Exercise> workoutSessionList = workoutSession.getExerciseList();
 
@@ -59,7 +59,7 @@ public class WorkoutApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: add a workout session
+    // EFFECTS: adds a workout session to the workout history
     private void addWorkoutSession() {
         sc = new Scanner(System.in); // initializing scanner object
         workoutSession = initializeWorkoutSession(); // initializing workout session object
@@ -146,7 +146,7 @@ public class WorkoutApp {
         return null; // returns null if user changes their mind
     }
 
-    // EFFECTS: returns a date for the workout session
+    // EFFECTS: returns a date to add to the workout session
     private String addDate() {
         sc = new Scanner(System.in); // initializing scanner object
 

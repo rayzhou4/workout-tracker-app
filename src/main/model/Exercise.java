@@ -9,16 +9,16 @@ public class Exercise {
 
     // REQUIRES: exerciseName has a non-zero length
     // EFFECTS: exercise done is set to exerciseName; if this.weight >= 0, then
-    //          weight is set to this.weight, otherwise this.weight is set to 0
+    //          weight is set to this.weight, otherwise this.weight is set to -1
     //          (meaning that the exercise doesn't involve any weights such as
     //          dumbbells, barbells, etc.), this.reps is set to reps, this.sets is
     //          set to sets
     public Exercise(String exerciseName, double weight, int reps, int sets) {
         this.exercise = exerciseName;
-        if (this.weight >= 0) {
+        if (weight >= 0) {
             this.weight = weight;
         } else {
-            this.weight = 0;
+            this.weight = -1;
         }
         this.reps = reps;
         this.sets = sets;

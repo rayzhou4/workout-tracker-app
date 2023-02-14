@@ -24,7 +24,7 @@ class ExerciseTest {
         assertEquals(4, testExercise1.getSets());
 
         assertEquals("Wind Sprints", testExercise2.getExercise());
-        assertEquals(-35, testExercise2.getWeight());
+        assertEquals(-1, testExercise2.getWeight());
         assertEquals(15, testExercise2.getReps());
         assertEquals(5, testExercise2.getSets());
     }
