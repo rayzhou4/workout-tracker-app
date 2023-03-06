@@ -33,4 +33,5 @@ out) to get into the habit of working out more easily, so they can also experien
 - As a user, I want to be able to mark how I felt after each workout session (out of a score of 5, with 1 being the
 lowest)
 - As a user, I want to be able to see my statistics over my entire workout journey
-
+- As a user, I want to be able to save my workout history list to file (if I so choose)
+- As a user, I want to be able to load my to-do list from file (if I so choose)
