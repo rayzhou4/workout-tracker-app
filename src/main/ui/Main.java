@@ -1,12 +1,6 @@
 package ui;
 
-import model.Exercise;
-import model.WorkoutHistory;
-import model.WorkoutSession;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 // Main User Interface class
 public class Main {

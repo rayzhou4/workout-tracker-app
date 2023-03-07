@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // an exercise class that contains information relating to an exercise
-public class Exercise {
+public class Exercise implements Writable {
     private String exercise;    // tracks the type of exercise
     private double weight;      // if applicable, the weight of how heavy the exercise was (ex. dumbbells) in lbs
     private int reps;           // the number of reps for each set of each exercise
@@ -38,5 +41,15 @@ public class Exercise {
 
     public int getSets() {
         return this.sets;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("exercise", this.exercise);
+        json.put("weight", this.weight);
+        json.put("reps", this.reps);
+        json.put("sets", this.sets);
+        return json;
     }
 }

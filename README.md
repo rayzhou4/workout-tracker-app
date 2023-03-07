@@ -26,6 +26,8 @@ working out, specifically, I felt a massive confidence boost as well as just fel
 journey. So, I believe that creating this project can help some beginners (or even people that want to start working
 out) to get into the habit of working out more easily, so they can also experience what I have experienced.
 
+Adapted JsonSerializationDemo's as a basis for this project's persistence module.
+
 ## User Stories
 - As a user, I want to be able to add my workout session to the application's record
 - As a user, I want to add multiple exercises to one workout session

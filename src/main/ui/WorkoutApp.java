@@ -1,16 +1,24 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 // Workout Tracker application
 public class WorkoutApp {
+    private static final String JSON_STORAGE = "./data/workouthistory.json";
     private WorkoutHistory workoutHistory = new WorkoutHistory(); // the workout history that stores everything
     private WorkoutSession workoutSession;
     private Scanner sc; //initializing scanner object
+    private JsonWriter jsonWriter = new JsonWriter(JSON_STORAGE);
+    private JsonReader jsonReader = new JsonReader(JSON_STORAGE);
+
 
     // EFFECTS: runs the workout application
     public WorkoutApp() {
@@ -24,7 +32,7 @@ public class WorkoutApp {
         while (true) {
             // introducing application to user (the main menu)
             System.out.println("Main Menu:\n" + "(1) Add a workout session\n" + "(2) View your entire workout history\n"
-                    + "(3) View your statistics\n" + "(4) Exit");
+                    + "(3) View your statistics\n" + "(4) File actions (save/load)\n" + "(5) Exit");
 
             int intUserInput = sc.nextInt();
             if (intUserInput == 1) {
@@ -34,6 +42,8 @@ public class WorkoutApp {
             } else if (intUserInput == 3) {
                 viewStatistics();
             } else if (intUserInput == 4) {
+                fileActions();
+            } else if (intUserInput == 5) {
                 break;
             } else {
                 System.out.println("Please input within the appropriate range!");
@@ -210,5 +220,45 @@ public class WorkoutApp {
                 + "\nAverage Time per Workout: " + workoutHistory.getAverageTime() + " mins");
     }
 
+    // EFFECTS: allows the user to choose to either save or load their workout history
+    private void fileActions() {
+        while (true) {
+            System.out.println("Select one of the following:\n" + "(1) Save\n" + "(2) Load");
+
+            int intUserInput = sc.nextInt();
+            if (intUserInput == 1) {
+                save();
+                break;
+            } else if (intUserInput == 2) {
+                load();
+                break;
+            } else {
+                System.out.println("Please input within the appropriate range!");
+            }
+        }
+    }
+
+    //  EFFECTS: allows user to save their workout history to file
+    private void save() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(workoutHistory);
+            jsonWriter.close();
+            System.out.println("Saved entire workout history to " + JSON_STORAGE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write file to: " + JSON_STORAGE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: allows user to load their workout history from file
+    private void load() {
+        try {
+            workoutHistory = jsonReader.read();
+            System.out.println("Loaded previously saved workout history from " + JSON_STORAGE);
+        } catch (IOException e) {
+            System.out.println("Unable to read file from: " + JSON_STORAGE);
+        }
+    }
 }
 

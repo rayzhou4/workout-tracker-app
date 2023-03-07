@@ -1,11 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
 // a workout session class that includes a list of exercises with additional information relating to workout sessions
-public class WorkoutSession {
+public class WorkoutSession implements Writable {
     private ArrayList<Exercise> exerciseList; // the list of exercises done during the workout session
     private int time;                         // how long the workout lasted (in minutes)
     private String date;                      // the date of the workout session (in string format)
@@ -79,5 +83,25 @@ public class WorkoutSession {
     // EFFECTS: changes the happiness score for the workout session
     public int setHappinessScore(int newScore) {
         return this.happinessScore = newScore;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("time", this.time);
+        json.put("date", this.date);
+        json.put("happiness score", this.happinessScore);
+        json.put("exercises", exercisesToJson());
+        return json;
+    }
+
+    public JSONArray exercisesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Exercise exercise : this.exerciseList) {
+            jsonArray.put(exercise.toJson());
+        }
+
+        return jsonArray;
     }
 }

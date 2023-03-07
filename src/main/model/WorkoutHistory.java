@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
 // a workout history class that contains information relating to the entire workout history of the user
-public class WorkoutHistory {
+public class WorkoutHistory implements Writable {
     private ArrayList<WorkoutSession> workoutSessionList;
 
     // MODIFIES: this
@@ -69,5 +73,23 @@ public class WorkoutHistory {
             sum += workoutSession.getTime();
         }
         return sum / workoutSessionList.size();
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("workout sessions", workoutSessionsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray workoutSessionsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (WorkoutSession workoutSession : this.workoutSessionList) {
+            jsonArray.put(workoutSession.toJson());
+        }
+
+        return jsonArray;
     }
 }
