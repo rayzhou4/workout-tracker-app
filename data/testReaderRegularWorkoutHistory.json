@@ -1,0 +1,48 @@
+{
+  "workout sessions": [
+    {
+      "date": "2022-01-31",
+      "exercises": [
+        {
+          "reps": -1,
+          "sets": -1,
+          "exercise": "Sprinting",
+          "weight": -1
+        },
+        {
+          "reps": 15,
+          "sets": 4,
+          "exercise": "Curls",
+          "weight": 20
+        }
+      ],
+      "time": 35,
+      "happiness score": 5
+    },
+    {
+      "date": "2023-04-04",
+      "exercises": [
+        {
+          "reps": 10,
+          "sets": 4,
+          "exercise": "Bench Press",
+          "weight": 135
+        },
+        {
+          "reps": 10,
+          "sets": 5,
+          "exercise": "Leg Press",
+          "weight": 325
+        },
+        {
+          "reps": 12,
+          "sets": 4,
+          "exercise": "Shoulder Press",
+          "weight": 60
+        }
+      ],
+      "time": 65,
+      "happiness score": 4
+    }
+  ]
+}
