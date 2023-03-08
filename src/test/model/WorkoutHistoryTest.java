@@ -82,19 +82,23 @@ class WorkoutHistoryTest {
         assertEquals(0, testWorkoutHistory.getTotalMonth());
 
         // additional setup
-        WorkoutSession workoutSession1 = new WorkoutSession(135, "2023-01-31", 3);
-        WorkoutSession workoutSession2 = new WorkoutSession(35, "2020-02-20", 5);
+        WorkoutSession workoutSession1 = new WorkoutSession(135,
+                Integer.toString(CURRENT_YEAR) + "-02-31",
+                3);
+        WorkoutSession workoutSession2 = new WorkoutSession(35,
+                Integer.toString(CURRENT_YEAR-1) + "-" + Integer.toString(CURRENT_MONTH) + "-20",
+                5);
+        WorkoutSession workoutSession3 = new WorkoutSession(20, "2020-02-20", 5);
         testWorkoutHistory.addWorkoutSession(workoutSession1);
         testWorkoutHistory.addWorkoutSession(workoutSession2);
+        testWorkoutHistory.addWorkoutSession(workoutSession3);
 
-        if (CURRENT_YEAR == 2023 && CURRENT_MONTH == 02) {
-            assertEquals(0, testWorkoutHistory.getTotalMonth());
-        }
+        assertEquals(0, testWorkoutHistory.getTotalMonth());
 
-        WorkoutSession workoutSession3 = new WorkoutSession(35,
+        WorkoutSession workoutSession4 = new WorkoutSession(35,
                 "2023-" + Integer.toString(CURRENT_MONTH) + "-21",
                 5);
-        testWorkoutHistory.addWorkoutSession(workoutSession3);
+        testWorkoutHistory.addWorkoutSession(workoutSession4);
 
         if (CURRENT_YEAR == 2023) {
             assertEquals(1, testWorkoutHistory.getTotalMonth());
