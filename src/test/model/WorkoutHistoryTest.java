@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class WorkoutHistoryTest {
     private WorkoutHistory testWorkoutHistory;
     private static final int CURRENT_YEAR = 2023;
-    private static final int CURRENT_MONTH = 02;
+    private static final int CURRENT_MONTH = Calendar.MONTH + 1;
 
     @BeforeEach
     void runBefore() {
@@ -90,10 +91,12 @@ class WorkoutHistoryTest {
             assertEquals(0, testWorkoutHistory.getTotalMonth());
         }
 
-        WorkoutSession workoutSession3 = new WorkoutSession(35, "2023-02-21", 5);
+        WorkoutSession workoutSession3 = new WorkoutSession(35,
+                "2023-" + Integer.toString(CURRENT_MONTH) + "-21",
+                5);
         testWorkoutHistory.addWorkoutSession(workoutSession3);
 
-        if (CURRENT_YEAR == 2023 && CURRENT_MONTH == 02) {
+        if (CURRENT_YEAR == 2023) {
             assertEquals(1, testWorkoutHistory.getTotalMonth());
         }
     }

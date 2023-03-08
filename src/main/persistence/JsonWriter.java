@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
+// a json reader class that writes a json file
 public class JsonWriter {
     private static final int TAB_SPACE = 4;
     private PrintWriter writer;
@@ -25,7 +26,7 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of workroom to file
+    // EFFECTS: writes JSON representation of workoutHistory to file
     public void write(WorkoutHistory workoutHistory) {
         JSONObject json = workoutHistory.toJson();
         saveToFile(json.toString(TAB_SPACE));

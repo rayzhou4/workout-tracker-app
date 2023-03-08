@@ -10,6 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+// a class that tests the implementations of the json writer class
 public class JsonWriterTest extends JsonTest {
 
     @Test

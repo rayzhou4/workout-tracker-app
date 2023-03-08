@@ -9,11 +9,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.stream.Stream;
 
-
+// a json reader class that reads a json file
 public class JsonReader {
     private String root;
 
@@ -22,7 +20,7 @@ public class JsonReader {
         this.root = root;
     }
 
-    // EFFECTS: reads workroom from file and returns it;
+    // EFFECTS: reads workoutHistory from file and returns it;
     // throws IOException if an error occurs reading data from file
     public WorkoutHistory read() throws IOException {
         String jsonData = readFile(root);
@@ -41,7 +39,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses workoutHistory from JSON object and returns it
     private WorkoutHistory parseWorkoutHistory(JSONObject jsonObject) {
         WorkoutHistory workoutHistory = new WorkoutHistory();
         addWorkoutSessions(workoutHistory, jsonObject);
@@ -49,7 +47,7 @@ public class JsonReader {
     }
 
     // MODIFIES: workoutHistory
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
+    // EFFECTS: parses workout sessions from JSON object and adds them to workoutHistory
     private void addWorkoutSessions(WorkoutHistory workoutHistory, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("workout sessions");
         for (Object json : jsonArray) {
@@ -59,7 +57,7 @@ public class JsonReader {
     }
 
     // MODIFIES: workoutHistory
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // EFFECTS: parses workout sessions from JSON object and adds it to workHistory
     private void addWorkoutSession(WorkoutHistory workoutHistory, JSONObject jsonObject) {
         int time = jsonObject.getInt("time");
         String date = jsonObject.getString("date");

@@ -7,7 +7,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// a class that has helpers to test the implementations of json reader and json writer
 public class JsonTest {
+    // checks if the given session matches the correct information
     protected void checkSession(int index, int time, String date, int happinessScore, WorkoutSession workoutSession) {
         assertEquals(time, workoutSession.getTime());
         assertEquals(date, workoutSession.getDate());
@@ -26,6 +28,7 @@ public class JsonTest {
         }
     }
 
+    // checks if the given exercise matches the correct information
     protected void checkExercise(String exerciseName, double weight, int reps, int sets, Exercise exercise) {
         assertEquals(exerciseName, exercise.getExercise());
         assertEquals(weight, exercise.getWeight());

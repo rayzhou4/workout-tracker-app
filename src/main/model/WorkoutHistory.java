@@ -82,7 +82,7 @@ public class WorkoutHistory implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns workout sessions in this workout history as a JSON array
     private JSONArray workoutSessionsToJson() {
         JSONArray jsonArray = new JSONArray();
 

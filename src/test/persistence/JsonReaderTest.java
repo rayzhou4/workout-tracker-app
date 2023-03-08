@@ -1,6 +1,5 @@
 package persistence;
 
-import model.Exercise;
 import model.WorkoutSession;
 import model.WorkoutHistory;
 
@@ -11,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// a class that tests the implementations of the json reader class
 public class JsonReaderTest extends JsonTest {
 
     @Test
