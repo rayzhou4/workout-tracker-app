@@ -1,46 +1,41 @@
 package ui.gui;
 
-import model.WorkoutHistory;
-import model.WorkoutSession;
-import persistence.JsonReader;
-import persistence.JsonWriter;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
 
 // Main Graphical User Interface class
-class WorkoutAppGUI {
+public class WorkoutAppGUI extends JFrame {
 
     private JFrame frame;
     //private BookShelfGUI bookShelfPanel = new BookShelfGUI();
     //private ReadingListGUI readingListPanel = new ReadingListGUI();
     private MainMenuGUI mainMenuGUI = new MainMenuGUI();
     protected static CardLayout cardLayout = new CardLayout();
+    private JButton saveLoadButton;
+    private JButton viewWorkoutHistoryButton;
+    private JButton addWorkoutSessionButton;
+    private JButton viewStatisticsButton;
+    private JPanel mainPanel;
 
     public WorkoutAppGUI() {
         startApp();
     }
 
     private void setFrame() {
-        frame = new JFrame();
+        setContentPane(mainPanel);
+        setTitle("Workout Tracker");
+        setSize(800,600);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
 
-        ImageIcon icon = new ImageIcon("./data/Images/Icon.jpg");
-        frame.setIconImage(icon.getImage());
-
-        frame.setLayout(cardLayout);
-        frame.add(mainMenuGUI, "main menu");
-        //frame.add(bookShelfPanel, "bookshelf");
-        //frame.add(readingListPanel, "reading list");
-        cardLayout.show(frame.getContentPane(), "main menu");
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Personal Library");
-        frame.pack();
-        frame.setResizable(false);
-        frame.setVisible(true);
+        addWorkoutSessionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InitializeWorkoutSession();
+            }
+        });
     }
 
 
