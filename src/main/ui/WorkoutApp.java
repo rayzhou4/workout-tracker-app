@@ -4,6 +4,7 @@ import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -18,7 +19,6 @@ public class WorkoutApp {
     private Scanner sc; //initializing scanner object
     private JsonWriter jsonWriter = new JsonWriter(JSON_STORAGE);
     private JsonReader jsonReader = new JsonReader(JSON_STORAGE);
-
 
     // EFFECTS: runs the workout application
     public WorkoutApp() {

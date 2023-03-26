@@ -1,16 +1,16 @@
 {"workout sessions": [
     {
-        "date": "2023-03-06",
+        "date": "2023-05-06",
         "exercises": [
             {
                 "reps": -1,
                 "sets": -1,
-                "exercise": "Running",
+                "exercise": "cycling",
                 "weight": -1
             },
             {
                 "reps": 15,
-                "sets": 4,
+                "sets": 20,
                 "exercise": "Curls",
                 "weight": 20
             }
@@ -25,7 +25,7 @@
                 "reps": 5,
                 "sets": 5,
                 "exercise": "Bench Press",
-                "weight": 225
+                "weight": 2500
             },
             {
                 "reps": 10,
@@ -35,6 +35,17 @@
             }
         ],
         "time": 60,
+        "happiness score": 4
+    },
+    {
+        "date": "2023-10-10",
+        "exercises": [{
+            "reps": -1,
+            "sets": -1,
+            "exercise": "Sprint",
+            "weight": -1
+        }],
+        "time": 50,
         "happiness score": 4
     }
 ]}
