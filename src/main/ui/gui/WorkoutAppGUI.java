@@ -1,5 +1,7 @@
 package ui.gui;
 
+import ui.gui.frames.SetWorkoutSessionGUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,6 +25,10 @@ public class WorkoutAppGUI extends JFrame {
         startApp();
     }
 
+    private void startApp() {
+        setFrame();
+    }
+
     private void setFrame() {
         setContentPane(mainPanel);
         setTitle("Workout Tracker");
@@ -30,16 +36,15 @@ public class WorkoutAppGUI extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
+        addWorkoutSessionButtonActionListener();
+    }
+
+    private void addWorkoutSessionButtonActionListener() {
         addWorkoutSessionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new InitializeWorkoutSession();
+                new SetWorkoutSessionGUI();
             }
         });
-    }
-
-
-    private void startApp() {
-        setFrame();
     }
 }
