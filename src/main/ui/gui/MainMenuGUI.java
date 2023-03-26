@@ -1,6 +1,11 @@
 package ui.gui;
 
-public class MainMenuGUI {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MainMenuGUI extends JPanel implements ActionListener {
 
     private JButton toBookShelf = new JButton("Bookshelf");
     private JPanel sideBar;
@@ -34,9 +39,9 @@ public class MainMenuGUI {
         JFrame frame = (JFrame) this.getRootPane().getParent();
 
         if (e.getSource() == toBookShelf) {
-            BooksAppGUI.cardLayout.show(frame.getContentPane(),"bookshelf");
+            WorkoutAppGUI.cardLayout.show(frame.getContentPane(),"bookshelf");
         } else if (e.getSource() == toReadingList) {
-            BooksAppGUI.cardLayout.show(frame.getContentPane(),"reading list");
+            WorkoutAppGUI.cardLayout.show(frame.getContentPane(),"reading list");
         }
     }
 }
