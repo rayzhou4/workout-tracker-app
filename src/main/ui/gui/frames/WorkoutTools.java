@@ -6,6 +6,6 @@ import model.WorkoutSession;
 import javax.swing.*;
 
 public abstract class WorkoutTools extends JFrame {
-    protected WorkoutHistory workoutHistory = new WorkoutHistory();
+    protected static WorkoutHistory workoutHistory = new WorkoutHistory();
     protected static WorkoutSession workoutSession;
 }

@@ -27,7 +27,9 @@ public class WorkoutSessionGUI extends WorkoutTools {
     public WorkoutSessionGUI() {
         setFrame();
 
-        workoutHistory.addWorkoutSession(workoutSession);
+        addButtonActionListener();
+        removeButtonActionListener();
+        doneButtonActionListener();
     }
 
     private void setFrame() {
@@ -42,10 +44,6 @@ public class WorkoutSessionGUI extends WorkoutTools {
 
         setTable();
         setComboBox();
-
-        addButtonActionListener();
-        removeButtonActionListener();
-        doneButtonActionListener();
     }
 
     private void setTable() {
@@ -117,6 +115,7 @@ public class WorkoutSessionGUI extends WorkoutTools {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                workoutHistory.addWorkoutSession(workoutSession);
                 dispose();
             }
         });

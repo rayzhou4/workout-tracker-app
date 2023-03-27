@@ -1,7 +1,7 @@
 package ui.gui.frames;
 
 import model.WorkoutSession;
-import ui.gui.popups.InputError;
+import ui.gui.popups.PopupNotification;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +13,7 @@ public class SetWorkoutSessionGUI extends WorkoutTools {
     private JTextField textField2;
     private JButton doneButton;
     private JPanel mainPanel;
+    private JTextField textField3;
 
     public SetWorkoutSessionGUI() {
         setFrame();
@@ -33,11 +34,12 @@ public class SetWorkoutSessionGUI extends WorkoutTools {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int time = Integer.parseInt(textField1.getText());
+                int happinessScore = Integer.parseInt(textField3.getText());
                 String date = addDate();
                 if (date == null) {
-                    new InputError().setErrorMessage("Error: Please input an appropriate date!");
+                    new PopupNotification().setMessage("Error: Please input an appropriate date!");
                 } else {
-                    workoutSession = new WorkoutSession(time, date, -1);
+                    workoutSession = new WorkoutSession(time, date, happinessScore);
                     new WorkoutSessionGUI();
                     dispose();
                 }

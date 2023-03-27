@@ -1,15 +1,16 @@
 package ui.gui.popups;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InputError extends JFrame {
+public class PopupNotification extends JFrame {
     private JButton closeButton;
-    private JLabel errorMessage;
     private JPanel mainPanel;
+    private JTextArea message;
 
-    public InputError() {
+    public PopupNotification() {
         setFrame();
 
         closeButton.addActionListener(new ActionListener() {
@@ -23,13 +24,16 @@ public class InputError extends JFrame {
     private void setFrame() {
         setContentPane(mainPanel);
         setTitle("Error Message");
-        setSize(250,200);
+        setSize(300,250);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+
+        message.setLineWrap(true);
+        message.setWrapStyleWord(true);
     }
 
-    public void setErrorMessage(String message) {
-        errorMessage.setText(message);
+    public void setMessage(String message) {
+        this.message.setText(message);
     }
 }
 
