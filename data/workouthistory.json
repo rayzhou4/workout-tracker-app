@@ -47,5 +47,57 @@
         }],
         "time": 50,
         "happiness score": 4
+    },
+    {
+        "date": "2023-03-26",
+        "exercises": [
+            {
+                "reps": 4,
+                "sets": 15,
+                "exercise": "Curls",
+                "weight": 35
+            },
+            {
+                "reps": 4,
+                "sets": 10,
+                "exercise": "Bench Press",
+                "weight": 180
+            }
+        ],
+        "time": 30,
+        "happiness score": 4
+    },
+    {
+        "date": "2020-03-04",
+        "exercises": [{
+            "reps": 4,
+            "sets": 15,
+            "exercise": "Tricep Extensions",
+            "weight": 47
+        }],
+        "time": 60,
+        "happiness score": 5
+    },
+    {
+        "date": "2023-03-24",
+        "exercises": [{
+            "reps": -1,
+            "sets": -1,
+            "exercise": "Sprinting",
+            "weight": -1
+        }],
+        "time": 30,
+        "happiness score": 4
+    },
+    {
+        "date": "2020-02-02",
+        "exercises": [{
+            "reps": -1,
+            "sets": -1,
+            "exercise": "Cycling",
+            "weight": -1
+        }],
+        "time": 999,
+        "happiness score": 4
     }
 ]}

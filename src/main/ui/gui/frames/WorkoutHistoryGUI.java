@@ -1,6 +1,5 @@
 package ui.gui.frames;
 
-import model.Exercise;
 import model.WorkoutSession;
 
 import javax.swing.*;
@@ -9,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+// GUI class for the workout history viewing page
 public class WorkoutHistoryGUI extends WorkoutTools {
     private JPanel mainPanel;
     private JTable table;
@@ -18,6 +18,8 @@ public class WorkoutHistoryGUI extends WorkoutTools {
     private JButton openButton;
     private DefaultTableModel tableModel;
 
+    // MODIFIES: this
+    // EFFECTS: constructor; sets the GUI for the workout history viewing page
     public WorkoutHistoryGUI() {
         setFrame();
 
@@ -25,6 +27,8 @@ public class WorkoutHistoryGUI extends WorkoutTools {
         doneButtonActionListener();
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the frame for the GUI
     private void setFrame() {
         setContentPane(mainPanel);
         setTitle("Workout Tracker");
@@ -36,6 +40,8 @@ public class WorkoutHistoryGUI extends WorkoutTools {
         setComboBox();
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the table for the frame in the GUI
     private void setTable() {
         tableModel = new DefaultTableModel(
                 null,
@@ -65,6 +71,8 @@ public class WorkoutHistoryGUI extends WorkoutTools {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the combo box for the frame in the GUI
     private void setComboBox() {
         comboBoxModel = new DefaultComboBoxModel<>();
 
@@ -74,15 +82,19 @@ public class WorkoutHistoryGUI extends WorkoutTools {
         ArrayList<WorkoutSession> workoutHistoryList = workoutHistory.getWorkoutHistory();
 
         for (WorkoutSession workoutSession : workoutHistoryList) {
-            String newSelection = counter + ") " + workoutSession.getDate() +
-                    " (" + workoutSession.getTime() + " mins)";
+            String newSelection = counter + ") " + workoutSession.getDate()
+                    + " (" + workoutSession.getTime() + " mins)";
             comboBoxModel.addElement(newSelection);
             counter++;
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the open button; opens the selected workout session
     private void openButtonActionListener() {
         openButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to open the selected workout session
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selected = (String) comboBoxModel.getSelectedItem();
@@ -101,8 +113,12 @@ public class WorkoutHistoryGUI extends WorkoutTools {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the done button; disposes the frame
     private void doneButtonActionListener() {
         doneButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to dispose the frame
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();

@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// GUI class for the workout session page
 public class WorkoutSessionGUI extends WorkoutTools {
     private JButton addButton;
     private JTextField exerciseName;
@@ -24,6 +25,8 @@ public class WorkoutSessionGUI extends WorkoutTools {
     private JTabbedPane tabbedPane1;
     private JComboBox comboBox;
 
+    // MODIFIES: this
+    // EFFECTS: constructor; sets the GUI for the workout session page
     public WorkoutSessionGUI() {
         setFrame();
 
@@ -32,6 +35,8 @@ public class WorkoutSessionGUI extends WorkoutTools {
         doneButtonActionListener();
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the frame for the GUI
     private void setFrame() {
         setContentPane(mainPanel);
         setTitle("Workout Tracker");
@@ -46,6 +51,8 @@ public class WorkoutSessionGUI extends WorkoutTools {
         setComboBox();
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the table for the frame in the GUI
     private void setTable() {
         tableModel = new DefaultTableModel(
                 null,
@@ -61,36 +68,48 @@ public class WorkoutSessionGUI extends WorkoutTools {
         table.setModel(tableModel);
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the combo box for the frame in the GUI
     private void setComboBox() {
         comboBoxModel = new DefaultComboBoxModel<>();
 
         comboBox.setModel(comboBoxModel);
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the add button; adds the given exercise inputs to the workout session
     private void addButtonActionListener() {
         addButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to add the given user inputs as an exercise to the workout session
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = exerciseName.getText();
-                double weight = Double.parseDouble(WorkoutSessionGUI.this.weight.getText());
-                int sets = Integer.parseInt(WorkoutSessionGUI.this.sets.getText());
-                int reps = Integer.parseInt(WorkoutSessionGUI.this.reps.getText());
+                double weight = safelyGetDoubleInput(WorkoutSessionGUI.this.weight.getText(), "weight");
+                int sets = safelyGetIntInput(WorkoutSessionGUI.this.sets.getText(), "value for sets");
+                int reps = safelyGetIntInput(WorkoutSessionGUI.this.reps.getText(), "value for reps");
 
-                Exercise exercise = new Exercise(name, weight, sets, reps);
+                if (weight != -1 && sets != -1 && reps != -1) {
+                    Exercise exercise = new Exercise(name, weight, sets, reps);
 
-                workoutSession.addExercise(exercise);
+                    workoutSession.addExercise(exercise);
 
-                Object[] newRow = {name, weight, sets, reps};
-                tableModel.addRow(newRow);
+                    Object[] newRow = {name, weight, sets, reps};
+                    tableModel.addRow(newRow);
 
-                String newSelection = name + " (" + weight + " lbs: " + reps + " X " + sets + ")";
-                comboBoxModel.addElement(newSelection);
+                    String newSelection = name + " (" + weight + " lbs: " + reps + " X " + sets + ")";
+                    comboBoxModel.addElement(newSelection);
+                }
             }
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the remove button; removes the selected exercise from the workout session
     private void removeButtonActionListener() {
         removeButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to remove the selected exercise from the workout session
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selected = (String) comboBoxModel.getSelectedItem();
@@ -111,8 +130,12 @@ public class WorkoutSessionGUI extends WorkoutTools {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the done button; disposes the frame
     private void doneButtonActionListener() {
         doneButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to dispose the frame
             @Override
             public void actionPerformed(ActionEvent e) {
                 workoutHistory.addWorkoutSession(workoutSession);

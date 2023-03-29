@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// GUI class for the file actions page
 public class FileActionsGUI extends WorkoutTools {
-
     private static final String JSON_STORAGE = "./data/workouthistory.json";
     private JButton saveButton;
     private JButton loadButton;
@@ -20,6 +20,8 @@ public class FileActionsGUI extends WorkoutTools {
     private JsonWriter jsonWriter = new JsonWriter(JSON_STORAGE);
     private JsonReader jsonReader = new JsonReader(JSON_STORAGE);
 
+    // MODIFIES: this
+    // EFFECTS: constructor; sets the GUI for the file actions page
     public FileActionsGUI() {
         setFrame();
 
@@ -28,6 +30,8 @@ public class FileActionsGUI extends WorkoutTools {
         doneButtonActionListener();
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the frame for the GUI
     private void setFrame() {
         setContentPane(mainPanel);
         setTitle("Workout Tracker");
@@ -36,8 +40,12 @@ public class FileActionsGUI extends WorkoutTools {
         setVisible(true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the save button; saves/writes data to the json storage file
     private void saveButtonActionListener() {
         saveButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability save/write data to the json storage file
             @Override
             public void actionPerformed(ActionEvent evt) {
                 try {
@@ -52,22 +60,30 @@ public class FileActionsGUI extends WorkoutTools {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the load button; loads/reads data from the json storage file
     private void loadButtonActionListener() {
         loadButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to load/read data from the json storage file
             @Override
             public void actionPerformed(ActionEvent evt) {
                 try {
                     workoutHistory = jsonReader.read();
                     new PopupNotification().setMessage("Loaded previously saved workout history from " + JSON_STORAGE);
                 } catch (IOException err) {
-                    new PopupNotification().setMessage("Unable to read file from: \" + JSON_STORAGE");
+                    new PopupNotification().setMessage("Unable to read file from: " + JSON_STORAGE);
                 }
             }
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: action listener method for the done button; disposes the frame
     private void doneButtonActionListener() {
         doneButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to dispose the frame
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
