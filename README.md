@@ -41,12 +41,14 @@ lowest)
 ## Instructions for Grader
 - You can generate the first required action related to adding Xs to a Y by...
   - Clicking on the "Add Workout Session" button, then filling in the input fields (correctly), then click the "DONE"
-button, then fill in another set of input fields (correctly) and click the "ADD" button as many times as you'd like.  
+button, then fill in another set of input fields (correctly) and click the "ADD" button as many times as you'd like to
+add an Exercise (X) to a Workout Session (Y).  
 - You can generate the second required action related to adding Xs to a Y by...
   - Repeating the above process, expect this time, right after you finish filling in the first set of input fields (for
 the workout session), simply click on the "Remove Exercise" tab at the top. This will lead you to a page where you
-can click on the dropdown combobox to select an exercise (from the current workout session, so you'd first need to
-add an exercise) in which you can the click the "REMOVE" button in order to remove the selected exercise.
+can click on the dropdown combo-box to select an exercise (from the current workout session, so you'd first need to
+add an exercise) in which you can the click the "REMOVE" button in order to remove the selected exercise (X) from the
+current Workout Session (Y).
 - You can locate my visual component by...
   - Starting up the application, and you are able to change this visual component by clicking on the "Click Me" button
 located close to the bottom left of the window.
