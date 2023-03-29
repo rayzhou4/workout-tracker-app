@@ -37,3 +37,22 @@ lowest)
 - As a user, I want to be able to see my statistics over my entire workout journey
 - As a user, I want to be able to save my workout history list to file (if I so choose)
 - As a user, I want to be able to load my to-do list from file (if I so choose)
+
+## Instructions for Grader
+- You can generate the first required action related to adding Xs to a Y by...
+  - Clicking on the "Add Workout Session" button, then filling in the input fields (correctly), then click the "DONE"
+button, then fill in another set of input fields (correctly) and click the "ADD" button as many times as you'd like.  
+- You can generate the second required action related to adding Xs to a Y by...
+  - Repeating the above process, expect this time, right after you finish filling in the first set of input fields (for
+the workout session), simply click on the "Remove Exercise" tab at the top. This will lead you to a page where you
+can click on the dropdown combobox to select an exercise (from the current workout session, so you'd first need to
+add an exercise) in which you can the click the "REMOVE" button in order to remove the selected exercise.
+- You can locate my visual component by...
+  - Starting up the application, and you are able to change this visual component by clicking on the "Click Me" button
+located close to the bottom left of the window.
+- You can save the state of my application by...
+  - Clicking on the "Save/Load" button, then you will be directed to a new page where you can click on the "SAVE" button
+which will save your current data.
+- You can reload the state of my application by...
+  - Clicking on the "Save/Load" button, then you will be directed to a new page where you can click on the "LOAD" button
+which will load your previously saved data to your current application.

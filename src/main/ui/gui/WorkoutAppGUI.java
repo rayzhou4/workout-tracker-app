@@ -8,6 +8,8 @@ import ui.gui.frames.WorkoutHistoryGUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Random;
 
 // Workout Tracker application for GUI
 public class WorkoutAppGUI extends JFrame {
@@ -15,6 +17,7 @@ public class WorkoutAppGUI extends JFrame {
     private JButton viewWorkoutHistoryButton;
     private JButton addWorkoutSessionButton;
     private JButton viewStatisticsButton;
+    private JButton clickMeButton;
     private JPanel mainPanel;
     private JLabel image;
 
@@ -33,6 +36,7 @@ public class WorkoutAppGUI extends JFrame {
         viewWorkoutHistoryButtonActionListener();
         saveLoadButtonActionListener();
         viewStatisticsButtonActionListener();
+        clickMeButtonActionListener();
     }
 
     // MODIFIES: this
@@ -98,8 +102,27 @@ public class WorkoutAppGUI extends JFrame {
     }
 
     // MODIFIES: this
+    // EFFECTS: action listener method for click me button; changes the image
+    private void clickMeButtonActionListener() {
+        clickMeButton.addActionListener(new ActionListener() {
+            // MODIFIES: this
+            // EFFECTS: gives the button the ability to change the image
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Random rand = new Random();
+                int min = 1;
+                int max = 4;
+                int index = rand.nextInt((max - min) + 1) + min;
+
+
+                image.setIcon(new ImageIcon("data/Images/icon" + index +".jpg"));
+            }
+        });
+    }
+
+    // MODIFIES: this
     // EFFECTS: creates a new icon
     private void createUIComponents() {
-        image = new JLabel(new ImageIcon("data/Images/icon.jpg"));
+        image = new JLabel(new ImageIcon("data/Images/icon1.jpg"));
     }
 }
