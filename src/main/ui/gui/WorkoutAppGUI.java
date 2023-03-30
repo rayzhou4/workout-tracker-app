@@ -115,7 +115,7 @@ public class WorkoutAppGUI extends JFrame {
                 int index = rand.nextInt((max - min) + 1) + min;
 
 
-                image.setIcon(new ImageIcon("data/Images/icon" + index +".jpg"));
+                image.setIcon(new ImageIcon("data/Images/icon" + index + ".jpg"));
             }
         });
     }
