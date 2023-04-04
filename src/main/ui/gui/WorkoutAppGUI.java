@@ -1,5 +1,7 @@
 package ui.gui;
 
+import model.Event;
+import model.EventLog;
 import ui.gui.frames.FileActionsGUI;
 import ui.gui.frames.SetWorkoutSessionGUI;
 import ui.gui.frames.StatisticsGUI;
@@ -8,6 +10,8 @@ import ui.gui.frames.WorkoutHistoryGUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -37,6 +41,7 @@ public class WorkoutAppGUI extends JFrame {
         saveLoadButtonActionListener();
         viewStatisticsButtonActionListener();
         clickMeButtonActionListener();
+        windowCloserListener();
     }
 
     // MODIFIES: this
@@ -116,6 +121,21 @@ public class WorkoutAppGUI extends JFrame {
 
 
                 image.setIcon(new ImageIcon("data/Images/icon" + index + ".jpg"));
+            }
+        });
+    }
+
+    // EFFECTS: listener that prints the all the log events to the console at end of the application
+    private void windowCloserListener() {
+        addWindowListener(new WindowAdapter() {
+            // EFFECTS: prints the all the log events to the console at end of the application
+            @Override
+            public void windowClosing(WindowEvent e) {
+                EventLog theLog = EventLog.getInstance();
+                for (Event event : theLog) {
+                    System.out.println(event.getDescription() + " (" + event.getDate() + ")");
+                }
+                e.getWindow().dispose();
             }
         });
     }

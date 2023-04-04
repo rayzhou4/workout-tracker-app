@@ -66,6 +66,7 @@ public class WorkoutSession implements Writable {
     // new list of exercises is returned
     public ArrayList<Exercise> addExercise(Exercise exercise) {
         this.exerciseList.add(exercise);
+        EventLog.getInstance().logEvent(new Event("Exercise added."));
         return this.exerciseList;
     }
 
@@ -75,6 +76,7 @@ public class WorkoutSession implements Writable {
     // new list of exercises is returned
     public ArrayList<Exercise> removeExercise(Exercise exercise) {
         this.exerciseList.remove(exercise);
+        EventLog.getInstance().logEvent(new Event("Exercise removed."));
         return this.exerciseList;
     }
 

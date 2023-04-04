@@ -58,3 +58,19 @@ which will save your current data.
 - You can reload the state of my application by...
   - Clicking on the "Save/Load" button, then you will be directed to a new page where you can click on the "LOAD" button
 which will load your previously saved data to your current application.
+
+
+## Phase 4: Task 2
+Exercise added. (Mon Apr 03 18:00:47 PDT 2023)
+Exercise added. (Mon Apr 03 18:00:52 PDT 2023)
+Exercise added. (Mon Apr 03 18:00:54 PDT 2023)
+Exercise removed. (Mon Apr 03 18:01:00 PDT 2023)
+Workout Session added. (Mon Apr 03 18:01:06 PDT 2023)
+Exercise added. (Mon Apr 03 18:02:16 PDT 2023)
+Exercise added. (Mon Apr 03 18:02:31 PDT 2023)
+Exercise removed. (Mon Apr 03 18:02:42 PDT 2023)
+Exercise added. (Mon Apr 03 18:02:45 PDT 2023)
+Exercise added. (Mon Apr 03 18:03:01 PDT 2023)
+Exercise added. (Mon Apr 03 18:03:02 PDT 2023)
+Exercise removed. (Mon Apr 03 18:03:06 PDT 2023)
+Workout Session added. (Mon Apr 03 18:03:12 PDT 2023)

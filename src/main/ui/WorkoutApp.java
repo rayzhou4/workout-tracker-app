@@ -44,7 +44,7 @@ public class WorkoutApp {
             } else if (intUserInput == 4) {
                 fileActions();
             } else if (intUserInput == 5) {
-                break;
+                printLog();
             } else {
                 System.out.println("Please input within the appropriate range!");
             }
@@ -258,6 +258,14 @@ public class WorkoutApp {
             System.out.println("Loaded previously saved workout history from " + JSON_STORAGE);
         } catch (IOException e) {
             System.out.println("Unable to read file from: " + JSON_STORAGE);
+        }
+    }
+
+    // EFFECTS: prints the all the log events to the console at end of the application
+    private void printLog() {
+        EventLog theLog = EventLog.getInstance();
+        for (Event event : theLog) {
+            System.out.println(event.getDescription() + " (" + event.getDate() + ")");
         }
     }
 }

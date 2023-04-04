@@ -26,6 +26,7 @@ public class WorkoutHistory implements Writable {
     //          new list of workout sessions is returned
     public ArrayList<WorkoutSession> addWorkoutSession(WorkoutSession workoutSession) {
         this.workoutSessionList.add(workoutSession);
+        EventLog.getInstance().logEvent(new Event("Workout Session added."));
         return this.workoutSessionList;
     }
 
@@ -35,6 +36,7 @@ public class WorkoutHistory implements Writable {
     // new list of workout sessions is returned
     public ArrayList<WorkoutSession> removeWorkoutSession(WorkoutSession workoutSession) {
         this.workoutSessionList.remove(workoutSession);
+        EventLog.getInstance().logEvent(new Event("Workout Session removed."));
         return this.workoutSessionList;
     }
 
