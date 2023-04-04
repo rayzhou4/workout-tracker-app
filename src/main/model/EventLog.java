@@ -11,12 +11,13 @@ public class EventLog implements Iterable<Event> {
     private static EventLog theLog; // the only EventLog in the system (Singleton Design Pattern)
     private Collection<Event> events;
 
-    // this
+    // MODIFIES: this
     // EFFECTS: contructs the EventLog instance
     private EventLog() {
         events = new ArrayList<Event>();
     }
 
+    // MODIFIES: this
     // EFFECTS: gets instance of EventLog (creates a new instance, if one doesn't exist yet)
     public static EventLog getInstance() {
         if (theLog == null) {
@@ -25,18 +26,14 @@ public class EventLog implements Iterable<Event> {
         return theLog;
     }
 
+    // MODIFIES: this
     // EFFECTS: adds an event to the event log
-    /**
-     * Adds an event to the event log.
-     * @param e the event to be added
-     */
     public void logEvent(Event e) {
         events.add(e);
     }
 
-    /**
-     * Clears the event log and logs the event.
-     */
+    // MODIFIES: this
+    // EFFECTS: clears the event log and logs the event
     public void clear() {
         events.clear();
         logEvent(new Event("Event log cleared."));
