@@ -61,16 +61,37 @@ which will load your previously saved data to your current application.
 
 
 ## Phase 4: Task 2
-Exercise added. (Mon Apr 03 18:00:47 PDT 2023)
-Exercise added. (Mon Apr 03 18:00:52 PDT 2023)
-Exercise added. (Mon Apr 03 18:00:54 PDT 2023)
-Exercise removed. (Mon Apr 03 18:01:00 PDT 2023)
-Workout Session added. (Mon Apr 03 18:01:06 PDT 2023)
-Exercise added. (Mon Apr 03 18:02:16 PDT 2023)
-Exercise added. (Mon Apr 03 18:02:31 PDT 2023)
-Exercise removed. (Mon Apr 03 18:02:42 PDT 2023)
-Exercise added. (Mon Apr 03 18:02:45 PDT 2023)
-Exercise added. (Mon Apr 03 18:03:01 PDT 2023)
-Exercise added. (Mon Apr 03 18:03:02 PDT 2023)
-Exercise removed. (Mon Apr 03 18:03:06 PDT 2023)
-Workout Session added. (Mon Apr 03 18:03:12 PDT 2023)
+Exercise added (details: Hammer Curls - 30.0lbs - 3 X 15). (Mon Apr 10 20:31:29 PDT 2023)
+Exercise added (details: Hammer Curls - 30.0lbs - 3 X 15). (Mon Apr 10 20:31:30 PDT 2023)
+Exercise removed (details: Hammer Curls - 30.0lbs - 3 X 15). (Mon Apr 10 20:31:32 PDT 2023)
+Exercise added (details: Preacher Curls - 30.0lbs - 3 X 10). (Mon Apr 10 20:31:42 PDT 2023)
+Exercise added (details: Shoulder Press - 110.0lbs - 3 X 12). (Mon Apr 10 20:31:56 PDT 2023)
+Workout Session added (details: 1 total workout(s)). (Mon Apr 10 20:31:57 PDT 2023)
+Exercise added (details: Bench Press - 140.0lbs - 4 X 10). (Mon Apr 10 20:32:18 PDT 2023)
+Exercise added (details: Leg Press - 300.0lbs - 4 X 10). (Mon Apr 10 20:32:30 PDT 2023)
+Workout Session added (details: 2 total workout(s)). (Mon Apr 10 20:32:31 PDT 2023)
+
+## Phase 4: Task 3
+If given more time, a refactoring that I could have done is to completely create a new abstract class for my 
+"FileActionsGUI" class and "WorkoutApp" class, and make sure to create "JsonWriter" and "JsonReader" fields (since 
+both "FileActionsGUi" and "WorkoutApp" have such fields). Then, I would extend this new class to the already 
+implemented abstract class of "WorkoutTools", so it could receive its methods that "FileActionGUI" uses, but also so, 
+it can use the "WorkoutSession" and "WorkoutHistory" fields.
+
+The overall advantages of performing this refactoring includes:
+- Reduce Redundancy
+  - the new class will have the fields of "JsonWriter" and "JsonReader" which means that both
+  "FileActionsGUI" and "WorkoutApp" don't need to include the "JsonWriter" and "JsonReader" in its fields. 
+  - the new class will extend "WorkoutTools" which means that instead of "WorkoutApp" needing to include
+  "WorkoutSession" and "WorkoutHistory" in its own fields, it can simply just access the same fields in "Workout Tools"k
+
+The overall disadvantages of performing this refactoring includes:
+- Increases coupling
+  - since we have a new class in which "FileActionsGUI" and "WorkoutApp" extends, and this new class also extends 
+  the old "WorkoutTools" class, then we will see an increased interdependency on one another. Hence, we have increased 
+  coupling
+  - Harder to debug - increased interdependency means that if a bug were to occur in one of the higher level classes, 
+  we will see that a chain of bugs occurring in its subclasses.
+  - Harder to understand - since we have added a new class, it has increased to complexity of our design, and hence
+  would be harder to understand as a whole.
+  - More time spent on trying to debug (as a result of higher difficulty to debug and understand the design).

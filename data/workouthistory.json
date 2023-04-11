@@ -99,5 +99,16 @@
         }],
         "time": 999,
         "happiness score": 4
+    },
+    {
+        "date": "2023-04-06",
+        "exercises": [{
+            "reps": 4,
+            "sets": 10,
+            "exercise": "Bench Press",
+            "weight": 140
+        }],
+        "time": 45,
+        "happiness score": 3
     }
 ]}
