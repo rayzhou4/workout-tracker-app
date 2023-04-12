@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class WorkoutHistoryTest {
     private WorkoutHistory testWorkoutHistory;
     private static final int CURRENT_YEAR = 2023;
-    private static final int CURRENT_MONTH = Calendar.MONTH + 1;
+    private static final int CURRENT_MONTH = Calendar.MONTH + 2;
 
     @BeforeEach
     void runBefore() {
@@ -89,6 +89,7 @@ class WorkoutHistoryTest {
                 Integer.toString(CURRENT_YEAR-1) + "-" + Integer.toString(CURRENT_MONTH) + "-20",
                 5);
         WorkoutSession workoutSession3 = new WorkoutSession(20, "2020-02-20", 5);
+
         testWorkoutHistory.addWorkoutSession(workoutSession1);
         testWorkoutHistory.addWorkoutSession(workoutSession2);
         testWorkoutHistory.addWorkoutSession(workoutSession3);

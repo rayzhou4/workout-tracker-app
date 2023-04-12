@@ -83,7 +83,11 @@ The overall advantages of performing this refactoring includes:
   - the new class will have the fields of "JsonWriter" and "JsonReader" which means that both
   "FileActionsGUI" and "WorkoutApp" don't need to include the "JsonWriter" and "JsonReader" in its fields. 
   - the new class will extend "WorkoutTools" which means that instead of "WorkoutApp" needing to include
-  "WorkoutSession" and "WorkoutHistory" in its own fields, it can simply just access the same fields in "Workout Tools"k
+  "WorkoutSession" and "WorkoutHistory" in its own fields, it can simply just access the same fields in "Workout Tools"
+- Increases/Improves cohesion
+  - because we now have a superclass that specifically takes care of the "JsonWriter" and "JsonReader", 
+  we are improving cohesion by a tiny amount
+  - this means a more reusable code, and would have less complexity within each of the affected classes 
 
 The overall disadvantages of performing this refactoring includes:
 - Increases coupling
