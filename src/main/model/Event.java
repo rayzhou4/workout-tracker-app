@@ -4,9 +4,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-/**
- * Represents an alarm system event.
- */
 // Class that represents a workout tracker event
 public class Event {
     private static final int HASH_CONSTANT = 13;
